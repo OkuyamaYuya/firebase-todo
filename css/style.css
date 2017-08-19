@@ -1,0 +1,259 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+body {
+	width: 50%;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #34495e;
+	color: #fff;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+::-webkit-input-placeholder { color: #ecf0f1; }
+
+button,
+input[type="checkbox"] {
+  outline: none;
+}
+
+#todoapp {
+	background: #2c3e50;
+	position: relative;
+	padding: 2px;
+}
+
+#todoapp input::-webkit-input-placeholder {
+	font-style: italic;
+}
+
+#todoapp input::-moz-placeholder {
+	font-style: italic;
+	color: #a9a9a9;
+}
+
+#new-todo,
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 24px;
+	font-family: inherit;
+	line-height: 1.4em;
+	border: 0;
+	outline: none;
+	color: inherit;
+	padding: 6px;
+	border: 1px solid #999;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+#new-todo {
+	padding: 16px 16px 16px 60px;
+	border: none;
+	background: rgba(0, 0, 0, 0.02);
+	z-index: 2;
+	box-shadow: none;
+}
+
+#main {
+	position: relative;
+	z-index: 2;
+}
+
+.edit {
+	position: relative;
+	right: 5px;
+	color: #333;
+	background: #BAC8D7;
+}
+
+#toggle-taya {
+	position: absolute;
+	cursor: pointer;
+	text-align: center;
+	border: none; 
+top: -56px;
+		left: -15px;
+		width: 65px;
+		height: 41px;
+		-webkit-appearance: none;
+		appearance: none;
+}
+
+#toggle-taya:before {
+	position: relative;
+	top: 10px;
+	content: 'ゆたや';
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 8px;
+	color: #d9d9d9;
+	padding-left: 20px;
+}
+
+#todo-form {
+	background: #1ab;
+}
+
+#todo-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#todo-list li {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid #34495e;
+	background: #2c3e50;
+}
+
+#todo-list li:last-child {
+	border-bottom: none;
+}
+
+#todo-list li.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+#todo-list li.editing .edit {
+	display: block;
+	width: 90%;
+	padding: 13px 17px 12px 17px;
+	margin: 0 0 0 43px;
+}
+
+#todo-list li.editing .view {
+	display: none;
+}
+
+#todo-list li .toggle {
+	text-align: center;
+	width: 40px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	border: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+#todo-list li .toggle:after {
+	content: '●';
+	line-height: 43px;
+	font-size: 30px;
+	color: #e74c3c;
+	text-shadow: 0 0 2px #e74c3c;
+}
+
+#todo-list li .toggle:checked:after {
+	color: #2ecc71;
+	text-shadow: 0 0 2px #27ae60;
+	bottom: 1px;
+	position: relative;
+}
+
+#todo-list li label {
+	font-size: 0.8em;
+	white-space: pre;
+	word-break: break-word;
+	padding: 15px 60px 15px 15px;
+	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#todo-list li.completed label {
+	color: #ecf0f1;
+	text-decoration: line-through;
+}
+
+#todo-list li .destroy {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 22px;
+	color: #e74c3c;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+#todo-list li .destroy:hover {
+	text-shadow: 0 0 1px #000,
+				 0 0 10px rgba(199, 107, 107, 0.8);
+	-webkit-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+#todo-list li .destroy:after {
+	content: 'x';
+}
+
+#todo-list li:hover .destroy {
+	display: block;
+}
+
+#todo-list li .edit {
+	display: none;
+}
+
+#todo-list li.editing:last-child {
+	margin-bottom: -1px;
+}
+
+#todo-count {
+	float: right;
+	text-align: right;
+}
+
+@media (max-width: 980px) {
+	body {
+		width: 100%;
+	}
+}
