@@ -34,7 +34,7 @@
           ng-dblclick="todo.editing = true">
         <div class="view">
           <input type="checkbox" class="toggle" ng-model="todo.completed">
-          <label>{{todo.msg}}</label>
+            <label><a ng-href='{{todo.href}}' TARGET='_blank'>{{todo.msg}}</a></label>
           <button class="destroy" ng-click="removeTodo($index, todo)"></button>
         </div>
         <form action="#">

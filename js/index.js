@@ -12,7 +12,7 @@ function($scope, $timeout, filterFilter){
   // TODOが追加されるとリッスン
   todoRef.on('child_added', function(data) {
     console.log('add!!', data.val())
-    $scope.todos.push( { key: data.key, msg: data.val().msg, completed: false } )
+    $scope.todos.push( { key: data.key, msg: data.val().msg, completed: false, href: data.val().href } )
     $scope.update()
   })
 
@@ -36,9 +36,12 @@ function($scope, $timeout, filterFilter){
     // 新規TODOを投稿
     // Firebaseへpush
     // Firebaseが更新されると、リッスン
-    todoRef.push(
-      { msg: $scope.newtodo }
-    );
+    if ($scope.newtodo.match('http')) {
+      q = { msg: $scope.newtodo, href: $scope.newtodo }
+    } else {
+      q = { msg: $scope.newtodo, href: null }
+    }
+    todoRef.push(q)
     $scope.newtodo = ""
   }
 
