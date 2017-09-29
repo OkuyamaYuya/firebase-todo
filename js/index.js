@@ -1,5 +1,31 @@
 // データベースの参照を準備
 var todoRef = firebase.database().ref('tests/')
+
+// URLリンク先タイトルの取得および書き換え
+function rewrite (q, key) {
+  const domain = "13.113.236.74:8080"
+  // const domain = "localhost:8080"
+  const url = "http://"+domain+"/api/title?url="+q.href
+  var request = new XMLHttpRequest();
+  request.open('GET', url);
+  request.onreadystatechange = function () {
+    if (request.readyState != 4) {
+      console.log('リクエスト中')
+    } else if (request.status != 200) {
+      // 失敗
+      console.log('タイトル取得に失敗')
+    } else {
+      // 取得成功
+      var title = request.responseText;
+      console.log(q,'\n-->',title)
+      q.msg = title
+      firebase.database().ref('tests/'+key).set(q)
+    }
+  }
+  request.send(null)
+}
+
+
 angular.module('myApp', ['ngTouch'])
 .controller('TodoCtrl', ['$scope',
                          '$timeout',
@@ -36,14 +62,21 @@ function($scope, $timeout, filterFilter){
     // 新規TODOを投稿
     // Firebaseへpush
     // Firebaseが更新されると、リッスン
+    var flag = false
     if ($scope.newtodo.match('http')) {
       q = { msg: $scope.newtodo, href: $scope.newtodo }
+      flag = true
     } else {
       q = { msg: $scope.newtodo, href: null }
     }
-    todoRef.push(q)
+    var key = todoRef.push(q).key
     $scope.newtodo = ""
+    if (flag) {
+      console.log('-->', key)
+      rewrite(q, key)
+    }
   }
+
 
   // 編集
   $scope.editTodo = function(todo){
