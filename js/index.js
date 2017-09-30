@@ -17,9 +17,13 @@ function rewrite (q, key) {
     } else {
       // 取得成功
       var title = request.responseText;
+      console.log('成功')
       console.log(q,'\n-->',title)
       q.msg = title
       firebase.database().ref('tests/'+key).set(q)
+      var todos = document.querySelectorAll('#todo-list>li>div>label>a')
+      var todo  = todos[todos.length-1]
+      todo.innerText = title
     }
   }
   request.send(null)
