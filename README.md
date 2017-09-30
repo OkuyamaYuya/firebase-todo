@@ -2,4 +2,4 @@
 
 TODO app using AngularJS, Firebase Realtime Database.
 
-- [x] [Display linked-page's title](http://13.113.236.74:8080/v2/ftodo/) using [api](http://13.113.236.74:8080/api/title)
+- [x] [Display linked-page's title](http://okue.site:8080/v2/ftodo/) using [api](http://okue.site:8080/api/title)
