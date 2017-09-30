@@ -3,7 +3,7 @@ var todoRef = firebase.database().ref('tests/')
 
 // URLリンク先タイトルの取得および書き換え
 function rewrite (q, key) {
-  const domain = "13.113.236.74:8080"
+  const domain = "13.113.236.74"
   // const domain = "localhost:8080"
   const url = "http://"+domain+"/api/title?url="+q.href
   var request = new XMLHttpRequest();
