@@ -27,7 +27,7 @@
 <body ng-controller="TodoCtrl">
     <section id="todoapp">
     <header id="header">
-      <form action="#" id="todo-form" ng-submit="addTodo()">
+      <form id="todo-form" ng-submit="addTodo()">
         <input type="text" id="new-todo" placeholder="What needs to be done?" autofocus autocomplete="off" ng-model="newtodo">
       </form>
     </header>
@@ -41,7 +41,7 @@
             <label><a ng-href='{{todo.href}}' TARGET='_blank'>{{todo.msg}}</a></label>
           <button class="destroy" ng-click="removeTodo($index, todo)"></button>
         </div>
-        <form action="#">
+        <form>
           <input class="edit" ng-model="todo.msg" ng-blur="editTodo(todo)" ng-swipe-right="editTodo(todo)"></input>
         </form>
       </li>
