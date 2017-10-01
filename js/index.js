@@ -87,10 +87,10 @@ function($scope, $timeout, filterFilter){
     console.log('edit!!', todo)
     // Firebaseを更新
     // 画面上のtodo.msgはAngularが更新してくれてる
-    if (todo.href !== null) {
+    if (todo.href != null) {
       q = { msg: todo.msg, href: todo.href }
     } else {
-      q = { msg: todo.msg, href: null }
+      q = { msg: todo.msg, href: null}
     }
     firebase.database().ref('tests/'+todo.key).set(q)
     todo.editing = false;
