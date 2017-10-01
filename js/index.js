@@ -2,7 +2,7 @@
 var todoRef = firebase.database().ref('tests/')
 
 // URLリンク先タイトルの取得および書き換え
-function rewrite (q, key) {
+function rewrite (q, key, todo_) {
   const domain = "13.113.236.74"
   // const domain = "localhost:8080"
   const url = "http://"+domain+"/api/title?url="+q.href
@@ -18,12 +18,10 @@ function rewrite (q, key) {
       // 取得成功
       var title = request.responseText;
       console.log('成功')
-      console.log(q,'\n-->',title)
+      console.log(q, title)
       q.msg = title
       firebase.database().ref('tests/'+key).set(q)
-      var todos = document.querySelectorAll('#todo-list>li>div>label>a')
-      var todo  = todos[todos.length-1]
-      todo.innerText = title
+      todo_.msg = title
     }
   }
   request.send(null)
@@ -77,7 +75,8 @@ function($scope, $timeout, filterFilter){
     $scope.newtodo = ""
     if (flag) {
       console.log('-->', key)
-      rewrite(q, key)
+      var todos = $scope.todos
+      rewrite(q, key, todos[todos.length-1])
     }
   }
 
