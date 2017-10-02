@@ -1,5 +1,6 @@
 // データベースの参照を準備
-var todoRef = firebase.database().ref('tests/')
+items = todo_setting.db
+var todoRef = firebase.database().ref(items)
 
 // URLリンク先タイトルの取得および書き換え
 function rewrite (q, key, todo_) {
@@ -20,7 +21,7 @@ function rewrite (q, key, todo_) {
       console.log('成功')
       console.log(q, title)
       q.msg = title
-      firebase.database().ref('tests/'+key).set(q)
+      firebase.database().ref(items+key).set(q)
       todo_.msg = title
     }
   }
@@ -55,7 +56,7 @@ function($scope, $timeout, filterFilter){
   // 削除
   $scope.removeTodo = function(index, todo){
       console.log('delete!!', todo)
-      firebase.database().ref('tests/'+todo.key).remove()
+      firebase.database().ref(items+todo.key).remove()
       $scope.todos.splice(index, 1)
   }
 
@@ -91,7 +92,7 @@ function($scope, $timeout, filterFilter){
     } else {
       q = { msg: todo.msg, href: null}
     }
-    firebase.database().ref('tests/'+todo.key).set(q)
+    firebase.database().ref(items+todo.key).set(q)
     todo.editing = false;
   }
 
