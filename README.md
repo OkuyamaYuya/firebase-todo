@@ -2,4 +2,4 @@
 
 TODO app using AngularJS, Firebase Realtime Database.
 
-- [x] [Display linked-page's title](http://okue.site/v2/ftodo/) using [api](http://okue.site/api/title)
+- [x] [Get linked-page's title](http://okue.site/vv/ftodo/) using [api](http://okue.site/api/title)
