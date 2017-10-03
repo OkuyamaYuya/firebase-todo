@@ -21,8 +21,14 @@ function rewrite (q, key, todo_) {
       console.log('成功')
       console.log(q, title)
       q.msg = title
+      // データベースに反映
       firebase.database().ref(items+key).set(q)
+      // todo objectに反映
       todo_.msg = title
+      // 画面に反映
+      var tds = document.querySelectorAll('#todo-list>li>div>label>a')
+      var td  = tds[tds.length-1]
+      td.innerText = title
     }
   }
   request.send(null)
