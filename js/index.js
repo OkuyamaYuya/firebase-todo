@@ -4,9 +4,7 @@ var todoRef = firebase.database().ref(items)
 
 // URLリンク先タイトルの取得および書き換え
 function rewrite (q, key, todo_) {
-  const domain = "13.113.236.74"
-  // const domain = "localhost:8080"
-  const url = "http://"+domain+"/api/title?url="+q.href
+  const url = todo_setting.api_endpoint + "?url=" + q.href
   var request = new XMLHttpRequest();
   request.open('GET', url);
   request.onreadystatechange = function () {
