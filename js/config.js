@@ -11,5 +11,5 @@ firebase.initializeApp(config);
 
 todo_setting = {
   db: "tests/",
-  api_endpoint: "http://okue.xyz/api/title"
+  api_endpoint: "http://amasiko.site/api/title"
 }
